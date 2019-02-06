@@ -69,8 +69,8 @@ function Adventure() {
       
         var lairBase = prompt("You are readying yourself for the ritual to make yourself immortal. Years have been spent preparing you for this moment. To start the ritual you need to grab your magical ingrediants before you approach the Alter. \n -look around \n -rest more").toLowerCase();
         
-        if (lairBase == "look around" || lairBase == "look"|| lairBase == "look "|| lairBase == "look around ") {
-            lairBaseLook();    
+        if (lairBase == "look around" || lairBase == "look") {
+            LairBaseLook();    
         }
             function LairBaseLook(){
                 var lairBaseLook1 = prompt("Your home is a large cavern, there are three doors. The cavern has many tables covered in old books and equipment. Along the west wall sits the ingredients you have gathered over the months for the ritual. The stone alter to preform the ritual upon is to the south of the room. To the north, the door you barred and locked months ago stands. The east of the cavern are two entrences to your large libraries. \n -go north \n -go south \n -go east \n -go west ").toLowerCase();
@@ -122,14 +122,19 @@ function Adventure() {
                         if (directionS == "start ritual"){
                             /// check to see if player has placed ingredients and crystals if he/she doesn't say "You can't begin till you have your crystals and ingredients ready!"
                             if (ritual.ingredientsPlaced >= 1 && ritual.crystalsPlaced >=1){
-                            Intruder();
+                                
+                                if(confirm("Are you sure you want to do this?")){
+                                    Intruder();
+                                }    
+                                
                             }
+                            
                             else {
                                 alert("you need to place your ingredients and crystals to start!");
                                 GoSouthLairBase();
                             }
-                            
                         }
+                        
 
                         else if (directionS == "go north"){
                             LairBaseLook();
@@ -230,32 +235,32 @@ function Adventure() {
             alert("Your mind becomes muddled. What did you want to do again?");
             LairBase();
         }      
-    }
+    } // Lair Base end bracket
     
     function Intruder(){
         
-        var intruder = prompt("You are about to begin casting the magic that will transform your lowly body when, you hear a 'ping' in your mind. Intruder. When you first came to the cave, you sneakily placed mystical alarms in all the rooms and entrences that detected people. The first alarm has been triggered. Then you feel a small object in your robe pocket, your crystal ball. Now you have to decide, take care of the intruder or continue casting the ritual. \n -use crystal ball \n -cast spell ").toLowerCase();
+        var intruder = prompt("You are about to begin casting the magic that will transform your lowly body when, you hear a 'ping' in your mind. Intruder. When you first came to the cave, you sneakily placed mystical alarms in all the rooms and entrences that detected people. The first alarm has been triggered. Then you feel a small object in your robe pocket, your crystal ball. Now you have to decide, take care of the intruder or continue casting the ritual. \n -use crystal ball \n -continue ritual ").toLowerCase();
         
         if (intruder == "use crystal ball"){
-            
+            CrystalBall();
         }
-        if (intruder == "cast spell"){
-            continueRitual(); 
+        if (intruder == "continue ritual"){
+            ContinueRitual(); 
         }
         
         else {
             alert("Your mind becomes muddled. What did you want to do again?");
             Intruder();
         }
-            function continueRitual(){
+            function ContinueRitual(){
                 
                 var initiate = prompt("To complete the ritual, you need to say the magic words, but your memory is a little fuzzy on the spell's words. I guess you will have to guess. Which word do you say? \n -Uzkealet \n -Ifstoqk ").toLowerCase();
                 
-                if (initiate = "Uzkealet"){
-                    uzkealet();
+                if (initiate = "uzkealet"){
+                    Uzkealet();
                 }
                 
-                if (initiate = "Ifstoqk"){
+                if (initiate = "ifstoqk"){
                     alert("Dang it, ya sploded, nice going hot shot, now you have to start over!");
                     LairBase();
                 }
@@ -266,22 +271,22 @@ function Adventure() {
                 LairBase();
                 }
                 
-            function uzkealet(){
+            function Uzkealet(){
                     var step_2 = prompt("hu, nothing happened it must have worked, okay, next word? \n -okpatka \n -aleoplwe \n -ielaells").toLowerCase();
                     
                     if (step_2 = "okpatka"){
-                        okpataka();
+                        Okpataka();
                     }
                     else {
                         alert("Dang it, ya sploded, nice going hot shot, now you have to start over!");
                     LairBase();
                     }
                 }
-            function okpataka(){
+            function Okpataka(){
                 var step_3 = prompt("right, again! You must be on a role, no jinxing. /n -makelus /n -alsierk /n -weoirld").toLowerCase();
             
                 if (step_3 = "makelus"){
-                    makelus();
+                    Makelus();
                 }
                 else {
                         alert("Dang it, ya sploded, nice going hot shot, now you have to start over!");
@@ -289,39 +294,76 @@ function Adventure() {
                     }
                     
             }
-            function makelus(){
+            function Makelus(){
                 var step_4 = prompt("Last one! /n -laskdjf /n -laierjwer /n -wiereuwlkd /n -ieorsld").toLowerCase();
                 
                 if (step_4 = "laskdif"){
-                    alert("Yay! You win, nice job. That pathetic adventurer never had a chance. Your reign of terror as a lich will continue forever, muwaahahahahaha!")
+                    alert("Yay! YOU WIN, nice job. That pathetic adventurer never had a chance. Your reign of terror as a lich will continue forever, muwaahahahahaha!")
                     
                 }
                 else {
                         alert("Dang it, ya sploded, nice going hot shot, now you have to start over!");
                     LairBase();
                     }
-            }  
+                }      
+            }// continue Ritual end bracket
+    
+        function CrystalBall(){            
+                var listOfMinions = prompt("You pull out your crystal ball from your robe pocket. Its transparent depths start to fill with magical energy as you enslave the minds of your minions, replacing their minds with your own. Which minion would you like to use first to take care of the nuisance. - goblin - troll - giant spider ").toLowerCase();
                 
+                switch(listOfMinions){
+                    case "goblin":
+                        var goblin = prompt("You seize control of the goblin leader's mind. You feel it crack and then shatter under your shear magical power. ")
+                        
+                    break;
+                    case "troll":
+                        var troll = prompt("You seize control of the troll's mind. It cracks but doesn't break and relinquishes to your awesome power.")
+                        
+                    break;
+                    case "giant spider":
+                        var giantSpider = prompt("You seize control of the spider's mind. It feels your touch and immediately relinquishes to your power.")
                 
+                    break;
+                    default: 
+                        alert("I don't know who "+listOfMinions+" is!");
+                        MinionSlaves();
+                    break;     
+                    }
+                        
+                        
+                        
                 
-                
-            }
+            } // crystal ball 
     
+    }// Intruder end bracket
     
-    
-    
-    }
-    
-}
+}// Adventure Function End bracket
 
 
 
 
 
 
+// SWITCHs
 
-
-
+//fuction Castle(){
+//  var insideCastle = prompt(" - upstairs - downstairs - courtyard - balcony - look ").toLowercase();
+//
+//  switch(insideCastle){
+//      case "upstairs":
+        //  var upstairs = prompt("you walk a long flight of stairs to the top floor of the castle.");
+        //  
+//          Castle();
+//      break;
+//      case "downstairs":
+//          alert("You go downstairs");
+//      break;
+//      default:
+//          alert("I don't know what "+insideCastle+" is!");
+//          Castle();
+//      break;
+//}
+//}
 
 
 
