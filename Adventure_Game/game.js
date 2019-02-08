@@ -28,12 +28,18 @@ var inventory = {
     crystals:0
     
 }
+var minions = {
+    goblin:1,
+    troll:1,
+    giantSpider:1
+}
 var ritual = {
     ingredientsPlaced:0,
     crystalsPlaced:0
 }
 var adventurer = {
-    tick:0
+    tick:0,
+    health:4
 }
 
 /// var blacksmith = prompt(what do you want to buy? /n -sword /n -armor /n -leave shop);
@@ -54,7 +60,8 @@ var adventurer = {
 //}
 
 
-Adventure();
+Intruder();
+// Adventure();
 
 function Adventure() {
     
@@ -283,7 +290,7 @@ function Adventure() {
                     }
                 }
             function Okpataka(){
-                var step_3 = prompt("right, again! You must be on a role, no jinxing. /n -makelus /n -alsierk /n -weoirld").toLowerCase();
+                var step_3 = prompt("right, again! You must be on a role, no jinxing. \n -makelus \n -alsierk \n -weoirld").toLowerCase();
             
                 if (step_3 = "makelus"){
                     Makelus();
@@ -295,7 +302,7 @@ function Adventure() {
                     
             }
             function Makelus(){
-                var step_4 = prompt("Last one! /n -laskdjf /n -laierjwer /n -wiereuwlkd /n -ieorsld").toLowerCase();
+                var step_4 = prompt("Last one! \n -laskdjf \n -laierjwer \n -wiereuwlkd \n -ieorsld").toLowerCase();
                 
                 if (step_4 = "laskdif"){
                     alert("Yay! YOU WIN, nice job. That pathetic adventurer never had a chance. Your reign of terror as a lich will continue forever, muwaahahahahaha!")
@@ -311,10 +318,59 @@ function Adventure() {
         function CrystalBall(){            
                 var listOfMinions = prompt("You pull out your crystal ball from your robe pocket. Its transparent depths start to fill with magical energy as you enslave the minds of your minions, replacing their minds with your own. Which minion would you like to use first to take care of the nuisance. - goblin - troll - giant spider ").toLowerCase();
                 
+                
                 switch(listOfMinions){
                     case "goblin":
-                        var goblin = prompt("You seize control of the goblin leader's mind. You feel it crack and then shatter under your shear magical power. ")
+                        if (minions.goblin == 1)
+                            alert("You seize control of the goblin's mind. You feel it crack and then shatter under your shear magical power. You blink your new eyes, just up from a nap. You see a room, about 25 feet square, weak sunlight filters through the entry tunnel. The cave is a mess bones, ashes from fire, gold pieces lying around.")
+                            if (adventurer.tick == 0)
+                                adventurer.tick ++
+                                var goblin = prompt("You see a shadow creep down the entry tunnel, it must be the adventurer. How will you deal with this \n -attack \n -sneak up on him \n -throw coins \n -run away ")
+                                    if (goblin == "attack"){
+                                        alert("You rush forward raising your dirty and dented sword to slice the adventurer, but he hears you coming and jumps from the shadows swinging his very sharp longsword. You die. You jump out of the goblin's body. Oh good, your safe in your cavern. Now you know better. Which minion would you like to use next?");
+                                        minions.goblin -- 
+                                        CrystalBall();
+                                    }
+                                    if (goblin == "sneak up on him"){
+                                        adventurer.tick ++
+                                        adventurer.health --
+                                        minions.goblin --
+                                        alert("You creep slowly out of your nest, quiet, quiet. The adventurer enters the room, looking around. You jump screaming 'eye eye eye eye eye!' he tries to block but you hit him with your sword. Then he stabbs you, and you die. You jump out of the goblin's body. Oh good, your safe in your cavern. You hurt the adventurer, good. Which minion would you like to use next?");
+                                        CrystalBall();
+                                    }
+                                    if (goblin == "throw coins"){
+                                        adventurer.tick ++ 
+                                        minions.goblin --
+                                        alert("You scoop up some gold coins and yeet them at the intruder. They clink harmlessly against his armor. He smiles, charges and slices you in half. Better luck next time. Oh good, your safe in your cavern. Now you know better. Which minion would you like to use next?");
+                                        CrystalBall();
+                                    }
+                                    if (goblin == "run away"){
+                                        adventurer.tick++
+                                        minions.goblin --
+                                        alert("You dash away, the adventurer sees you and chases you down the twisting tunnels, he stops, pulls out a bow, and shoots you. Dang it. Oh good, your safe in your cavern. Now you know better. Which minion would you like to use next?");
+                                        CrystalBall();
+                                        
+                                    }
                         
+                        
+                            if (adventurer.tick >=1)
+                                adventurer.tick ++
+                                minions.goblin --
+                                var goblinLate = prompt("The adventure must have passed the sleeping goblin. Do you \n chase after him \n or \n change minions");
+                                    if (goblinLate == "chase after him"){
+                                        alert("You run into the Troll Room, you see the adventurer fighting the troll with a glowing sword. The troll accidentally steps on your squishy body. Pick a new minion. ")
+                                        CrystalBall();
+                                    }
+                                    if (goblinLate == "change minions"){
+                                        minions.goblin --
+                                        adventurer.tick ++
+                                        alert("You leave the goblin's body and pick something better.")
+                                        CrystalBall();
+                                    }
+                        if (minions.goblin == 0){
+                            alert("You can't use a dead body, pick something else")
+                            CrystalBall();
+                        }
                     break;
                     case "troll":
                         var troll = prompt("You seize control of the troll's mind. It cracks but doesn't break and relinquishes to your awesome power.")
@@ -339,7 +395,19 @@ function Adventure() {
     
 }// Adventure Function End bracket
 
-
+//ARAYS
+//function GetRandInt(max){
+//      var randInt = Math.floor(Math.random()* Math.floor(max));
+//}
+//
+//
+//
+// function Game(){
+//      var wizardNames = ["Bethazar", "Mordac", "Grendor", "Orco"];
+//      document.write(wizardNames[0]);
+//      alert("Legend of "+wizardNames[Math.floor(Math.random()*Math.floor(4))]+"!");
+//      
+//}
 
 
 
@@ -383,25 +451,25 @@ function Adventure() {
 
 
 
-function Swamp(){
-    var swampEnv = prompt("THis is a dank swamp. \n -follow path \n -swim");
+//function Swamp(){
+  //  var swampEnv = prompt("THis is a dank swamp. \n -follow path \n -swim");
+    //
+    //if(swampEnv == "follow" || swampEnv == "follow path"){
+      //  var swampPath = prompt("You enter into the swamp, and head north when in the distance you see a hut. As you approach you see a candle in the window. \n -enter hut \n -burn it");
+        //if(swampPath == "enter"){
+          //  alert("You entered the hut. There is an old hag bent over a black cauldron on the roaring fire.");
+    //    }
+      //  }
     
-    if(swampEnv == "follow" || swampEnv == "follow path"){
-        var swampPath = prompt("You enter into the swamp, and head north when in the distance you see a hut. As you approach you see a candle in the window. \n -enter hut \n -burn it");
-        if(swampPath == "enter"){
-            alert("You entered the hut. There is an old hag bent over a black cauldron on the roaring fire.");
-        }
-        }
-    
-    else if(swampEnv == "swim"){
+    //else if(swampEnv == "swim"){
         
-    }
-    else{
-        alert("I don't understand "+swampEnv);
-        Swamp();
-    }
-
-}
+    //}
+    //else{
+      //  alert("I don't understand "+swampEnv);
+        //Swamp();
+    //}
+//
+//}
     
 
 
