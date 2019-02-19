@@ -20,7 +20,14 @@ multiline commment
 
 
 
+var checkInventory = function(){
+    alert("Ingredients: "+inventory.ingredients+"\n crystals: "+inventory.crystals);
+    
+}
 
+var checkAdventurer = function(){
+    alert("Adventurer's \nTick: "+adventurer.tick+"\n Health: "+adventurer.health);
+}
 
 var inventory = {
     crystal_ball:0,
@@ -126,6 +133,7 @@ function Adventure() {
             
                     function GoSouthLairBase(){        
                         var directionS = prompt("The stone is about half your height. It is large, smooth, and grey. Hollowed cylindrical holes are in each corner of the stone. If your ready would you like to begin the ritual? \n -start ritual \n -go north \n -place ingredients \n -set crystals").toLowerCase();
+                        checkInventory();
 
                         if (directionS == "start ritual"){
                             /// check to see if player has placed ingredients and crystals if he/she doesn't say "You can't begin till you have your crystals and ingredients ready!"
@@ -139,6 +147,7 @@ function Adventure() {
                             
                             else {
                                 alert("you need to place your ingredients and crystals to start!");
+                                checkInventory();
                                 GoSouthLairBase();
                             }
                         }
@@ -191,11 +200,13 @@ function Adventure() {
                         if (directionW == "grab ingredients"){
                             alert("You pick up your many powders, tinctures and vials") /// set ingredients to True
                             inventory.ingredients ++;
+                            checkInventory();
                             GoWestLairBase();
                         }
                         else if (directionW == "grab crystals"){
                             alert("You strain to reach the fragile crystals, knocking them off in the process, but are able to catch all four cylindrical stones before they fall and shatter.") /// set crystals = true
                             inventory.crystals ++;
+                            checkAdventurer();
                             GoWestLairBase();
                         }
                         else if (directionW == "break equipment"){
@@ -249,7 +260,7 @@ function Adventure() {
         
         var intruder = prompt("You are about to begin casting the magic that will transform your lowly body when, you hear a 'ping' in your mind. Intruder. When you first came to the cave, you sneakily placed mystical alarms in all the rooms and entrences that detected people. The first alarm has been triggered. Then you feel a small object in your robe pocket, your crystal ball. Now you have to decide, take care of the intruder or continue casting the ritual. \n -use crystal ball \n -continue ritual ").toLowerCase();
         
-        if (intruder == "use crystal ball"){
+        if (intruder == "use crystal ball" || intruder == "cb"){
             CrystalBall();
         }
         if (intruder == "continue ritual"){
@@ -317,107 +328,106 @@ function Adventure() {
             }// continue Ritual end bracket
     
         function CrystalBall(){            
-//                var listOfMinions = prompt("You pull out your crystal ball from your robe pocket. Its transparent depths start to fill with magical energy as you enslave the minds of your minions, replacing their minds with your own. Which minion would you like to use first to take care of the nuisance. - goblin - troll - giant_spider ").toLowerCase();
-//                
-//                
-//                switch(listOfMinions){
-//                    case "goblin":
-//                        
-//                        if (minions.goblin == 1){
-//                            alert("You seize control of the goblin's mind. You feel it crack and then shatter under your shear magical power. You blink your new eyes, just up from a nap. You see a room, about 25 feet square, weak sunlight filters through the entry tunnel. The cave is a mess bones, ashes from fire, gold pieces lying around.")
-//                        
-//                            if (adventurer.tick == 0){
-//                                adventurer.tick ++;
-//                                var goblin = prompt("You see a shadow creep down the entry tunnel, it must be the adventurer. How will you deal with this \n -attack \n -sneak up on him \n -throw coins \n -run away ")
-//                                    if (goblin == "attack"){
-//                                        alert("You rush forward raising your dirty and dented sword to slice the adventurer, but he hears you coming and jumps from the shadows swinging his very sharp longsword. You die. You jump out of the goblin's body. Oh good, your safe in your cavern. Now you know better. Which minion would you like to use next?");
-//                                        minions.goblin --; 
-//                                        CrystalBall();
-//                                    }
-//                                    if (goblin == "sneak up on him"){
-//                                        
-//                                        adventurer.health --;
-//                                        minions.goblin --;
-//                                        alert("You creep slowly out of your nest, quiet, quiet. The adventurer enters the room, looking around. You jump screaming 'eye eye eye eye eye!' he tries to block but you hit him with your sword. Then he stabbs you, and you die. You jump out of the goblin's body. Oh good, your safe in your cavern. You hurt the adventurer, good. Which minion would you like to use next?");
-//                                        CrystalBall();
-//                                    }
-//                                    if (goblin == "throw coins"){
-//                                        minions.goblin --;
-//                                        alert("You scoop up some gold coins and yeet them at the intruder. They clink harmlessly against his armor. He smiles, charges and slices you in half. Better luck next time. Oh good, your safe in your cavern. Now you know better. Which minion would you like to use next?");
-//                                        CrystalBall();
-//                                    }
-//                                    if (goblin == "run away"){
-//                                        minions.goblin --;
-//                                        alert("You dash away, the adventurer sees you and chases you down the twisting tunnels, he stops, pulls out a bow, and shoots you. Dang it. Oh good, your safe in your cavern. Now you know better. Which minion would you like to use next?");
-//                                        CrystalBall();
-//                                        
-//                                    }
-//                                    }
-//                                    
-//                        
-//                            if (adventurer.tick >=1){
-//                                adventurer.tick ++;
-//                                minions.goblin --;
-//                                var goblinLate = prompt("The adventure must have passed the sleeping goblin. Do you \n chase after him \n or \n change minions");
-//                                    if (goblinLate == "chase after him"){
-//                                        alert("You run into the Troll Room, you see the adventurer fighting the troll with a glowing sword. The troll accidentally steps on your squishy body. Pick a new minion. ")
-//                                        CrystalBall();
-//                                    }
-//                                    if (goblinLate == "change minions"){
-//                                        alert("You leave the goblin's body and pick something better.")
-//                                        CrystalBall();
-//                                    }
-//                                    }
-//                        }
-//                    break;
-//                    case "troll":
-//                        if (minions.troll == 1){
-//                            var troll = prompt("You seize control of the troll's mind. It cracks but doesn't break and relinquishes to your awesome power.")
-//                            if (adventurer.tick == 0){
-//                                adventurer.tick ++
-//                                var trollEarly = prompt("The adventurer hasn't been here yet, but you can smell him in a passage father down. Do you \n -hunt him \n -ambush him")
-//                                    if (trollEarly == "hunt him"){
-//                                                                 
-//                                    
-//                                        minions.troll --;
-//                                        alert("You charge down the tunnel sniffing for the intruder. You see a blue light up ahead. When you turn the corner you see him ready with his sword. You begin to attack but he swipes your head off with his sword before you can hit him. Better luck next time. Oh good, your safe in your lair. Now you know better. Which minion would you like to use next?");
-//                                        CrystalBall();
-//                                    }
-//                                    if (trollEarly == "ambush him"){
-//                                        minions.troll --;
-//                                        adventurer.health --;
-//                                        adventurer.health --;
-//                                        alert("You decide to wait. Your in a cave with a high ceiling, so you begin to climb. Right above the entrance. You wait for a little while when you see the blue light of his glowing sword. This time you've got em. You jump down trying to squish him. He hears you comming and dodges. You swipe at him with your claws. It doesn't hit skin but his armor takes a battering. He comes at you, You jump back and roar, swiping again. You draw blood this time, but while you are celebrating your victory, the intruder slides under you and stabs you in the heart. Your crystal ball and vision fades. Great job hurting the Intruder. Now which minion would you like to use?");
-//                                        CrystalBall();
-//                                    
-//                                    }
-//                                }
-//                            }
-//                    
-//                            if (adventurer.tick ==1){
-//                                adventurer.tick ++
-//                                var trollReady = prompt("The intruder comes and the blue light of his sword is shining down the tunnel, how should you deal with him? \n -charge \n -ambush him \n -play dead")
-//                                    if (trollReady = "charge"){
-//                                        minions.troll --;
-//                                        alert("You charge down the tunnel sniffing for the intruder. You see a blue light up ahead. When you turn the corner you see him ready with his sword. You begin to attack but he swipes your head off with his sword before you can hit him. Better luck next time. Oh good, your safe in your lair. Now you know better. Which minion would you like to use next?");
-//                                        CrystalBall();
-//
-//                                    }
-//                                    if (trollReady = "ambush him"){
-//                                        minions.troll --;
-//                                        adventurer.health --;
-//                                        adventurer.health --;
-//                                        alert("You decide to wait. Your in a cave with a high ceiling, so you begin to climb. Right above the entrance. You wait for a little while when you see the blue light of his glowing sword. This time you've got em. You jump down trying to squish him. He hears you comming and dodges. You swipe at him with your claws. It doesn't hit skin but his armor takes a battering. He comes at you, You jump back and roar, swiping again. You draw blood this time, but while you are celebrating your victory, the intruder slides under you and stabs you in the heart. Your crystal ball and vision fades. Great job hurting the Intruder. Now which minion would you like to use?");
-//                                        CrystalBall();
-//                                    }
-//                                    if (trollReady = "play dead"){
-//                                        minions.troll --;
-//                                        adventurer.health --;
-//                                        alert("The Intruder creeps into the room cautiously, he sees you lieing on the ground. He creeps closer and closer. You jump up and swipe him with your claws, he takes a hit. You go to swipe again but he chops off your arm. Then as you look at the stump on your shoulder, he stabs you through the heart. Great job hurting the Intruder. Now which minion would you like to use?");
-//                                        CrystalBall();
-//                                    }
-//
-//                                }
+                var listOfMinions = prompt("You pull out your crystal ball from your robe pocket. Its transparent depths start to fill with magical energy as you enslave the minds of your minions, replacing their minds with your own. Which minion would you like to use first to take care of the nuisance. - goblin - troll - giant_spider ").toLowerCase();
+                
+                
+                switch(listOfMinions){
+                    case "goblin":
+                        
+                        if (minions.goblin == 1){
+                            alert("You seize control of the goblin's mind. You feel it crack and then shatter under your shear magical power. You blink your new eyes, just up from a nap. You see a room, about 25 feet square, weak sunlight filters through the entry tunnel. The cave is a mess bones, ashes from fire, gold pieces lying around.")
+                            if (adventurer.tick == 0){//first minion
+                                adventurer.tick ++;
+                                var goblin = prompt("You see a shadow creep down the entry tunnel, it must be the adventurer. How will you deal with this \n -attack \n -sneak up on him \n -throw coins \n -run away ")
+                                   if (goblin == "attack"){
+                                       alert("You rush forward raising your dirty and dented sword to slice the adventurer, but he hears you coming and jumps from the shadows swinging his very sharp longsword. You die. You jump out of the goblin's body. Oh good, your safe in your cavern. Now you know better. Which minion would you like to use next?");
+                                        minions.goblin --; 
+                                        CrystalBall();
+                                    }
+                                    if (goblin == "sneak up on him" || goblin == "sneak"){
+                                        
+                                        adventurer.health --;
+                                        minions.goblin --;
+                                        alert("You creep slowly out of your nest, quiet, quiet. The adventurer enters the room, looking around. You jump screaming 'eye eye eye eye eye!' he tries to block but you hit him with your sword. Then he stabbs you, and you die. You jump out of the goblin's body. Oh good, your safe in your cavern. You hurt the adventurer, good. Which minion would you like to use next?");
+                                        CrystalBall();
+                                    }
+                                    if (goblin == "throw coins"){
+                                        minions.goblin --;
+                                       alert("You scoop up some gold coins and yeet them at the intruder. They clink harmlessly against his armor. He smiles, charges and slices you in half. Better luck next time. Oh good, your safe in your cavern. Now you know better. Which minion would you like to use next?");
+                                       CrystalBall();
+                                    }
+                                    if (goblin == "run away"){
+                                        minions.goblin --;
+                                        alert("You dash away, the adventurer sees you and chases you down the twisting tunnels, he stops, pulls out a bow, and shoots you. Dang it. Oh good, your safe in your cavern. Now you know better. Which minion would you like to use next?");
+                                        CrystalBall();
+                                        
+                                    }
+                                    }
+                                    
+                        
+                            if (adventurer.tick >=1){
+                                adventurer.tick ++;
+                                minions.goblin --;
+                                var goblinLate = prompt("The adventure must have passed the sleeping goblin. Do you \n chase after him \n or \n change minions");
+                                    if (goblinLate == "chase after him" || goblinLate == "chase"){
+                                        alert("You run into the Troll Room, you see the adventurer fighting the troll with a glowing sword. The troll accidentally steps on your squishy body. Pick a new minion. ")
+                                        CrystalBall();
+                                    }
+                                    if (goblinLate == "change minions"){
+                                        alert("You leave the goblin's body and pick something better.")
+                                        CrystalBall();
+                                    }
+                                    } // 2 or 3 minion
+                        } //end of goblin
+                    break;
+                    case "troll":
+                        if (minions.troll == 1){
+                           alert("You seize control of the troll's mind. It cracks but doesn't break and relinquishes to your awesome power.")
+                            if (adventurer.tick == 0){
+                                adventurer.tick ++
+                                var trollEarly = prompt("The adventurer hasn't been here yet, but you can smell him in a passage father down. Do you \n -hunt him \n -ambush him")
+                                    if (trollEarly == "hunt him" || trollEarly == "hunt"){
+                                                                 
+                                    
+                                        minions.troll --;
+                                        alert("You charge down the tunnel sniffing for the intruder. You see a blue light up ahead. When you turn the corner you see him ready with his sword. You begin to attack but he swipes your head off with his sword before you can hit him. Better luck next time. Oh good, your safe in your lair. Now you know better. Which minion would you like to use next?");
+                                        CrystalBall();
+                                    }
+                                    if (trollEarly == "ambush him"){
+                                        minions.troll --;
+                                        adventurer.health --;
+                                        adventurer.health --;
+                                        alert("You decide to wait. Your in a cave with a high ceiling, so you begin to climb. Right above the entrance. You wait for a little while when you see the blue light of his glowing sword. This time you've got em. You jump down trying to squish him. He hears you comming and dodges. You swipe at him with your claws. It doesn't hit skin but his armor takes a battering. He comes at you, You jump back and roar, swiping again. You draw blood this time, but while you are celebrating your victory, the intruder slides under you and stabs you in the heart. Your crystal ball and vision fades. Great job hurting the Intruder. Now which minion would you like to use?");
+                                        CrystalBall();
+                                    
+                                    }
+                               
+                            }
+                    
+                            if (adventurer.tick ==1){
+                                adventurer.tick ++
+                                var trollReady = prompt("The intruder comes and the blue light of his sword is shining down the tunnel, how should you deal with him? \n -charge \n -ambush him \n -play dead")
+                                    if (trollReady == "charge"){
+                                        minions.troll --;
+                                        alert("You charge down the tunnel sniffing for the intruder. You see a blue light up ahead. When you turn the corner you see him ready with his sword. You begin to attack but he swipes your head off with his sword before you can hit him. Better luck next time. Oh good, your safe in your lair. Now you know better. Which minion would you like to use next?");
+                                        CrystalBall();
+
+                                    }
+                                    if (trollReady == "ambush him" || trollReady == "ambush"){
+                                        minions.troll --;
+                                        adventurer.health --;
+                                        adventurer.health --;
+                                        alert("You decide to wait. Your in a cave with a high ceiling, so you begin to climb. Right above the entrance. You wait for a little while when you see the blue light of his glowing sword. This time you've got em. You jump down trying to squish him. He hears you comming and dodges. You swipe at him with your claws. It doesn't hit skin but his armor takes a battering. He comes at you, You jump back and roar, swiping again. You draw blood this time, but while you are celebrating your victory, the intruder slides under you and stabs you in the heart. Your crystal ball and vision fades. Great job hurting the Intruder. Now which minion would you like to use?");
+                                        CrystalBall();
+                                    }
+                                    if (trollReady == "play dead"){
+                                        minions.troll --;
+                                        adventurer.health --;
+                                        alert("The Intruder creeps into the room cautiously, he sees you lieing on the ground. He creeps closer and closer. You jump up and swipe him with your claws, he takes a hit. You go to swipe again but he chops off your arm. Then as you look at the stump on your shoulder, he stabs you through the heart. Great job hurting the Intruder. Now which minion would you like to use?");
+                                        CrystalBall();
+                                    }
+
+                                }
 //                            if (adventurer.tick >= 2){
 //                                adventurer.tick ++
 //                                var trollLate = prompt("You can smell the adventurer has been here, and for some reason this mangy monster didn't kill him. Its soooo hard to get good help these days. \n -chase after the adventurer \n -choose a diffrent minion.")
@@ -437,9 +447,25 @@ function Adventure() {
 //                            alert("You can't use a dead body! Pick a new minion.")
 //                            CrystalBall();
 //                        }
-//                    break;
-//                    /*case "giant_spider":
-//                        var giantSpider = prompt("You seize control of the spider's mind. It feels your touch and immediately relinquishes to your power.")
+                            }// troll check
+                    break;
+                    case "giant_spider":
+                       if (minions.giantSpider == 1){
+                            alert("You seize control of the spider's mind. It feels your touch and immediately relinquishes to your power.")
+                            if (adventurer.tick == 0){
+                                adventurer.tick ++
+                                var spiderEarly = prompt("The adventurer hasn't been here yet, but you can smell him in a passage father down. Do you \n -wait \n or \n -hunt")
+                                
+                                if (spiderEarly == "wait"){
+                                    alert("You choose to wait and check on other minions.")
+                                    CrystalBall();
+                                }
+                                if (spiderEarly == "hunt" ){
+                                    adventurer.health ++
+                                    adventurer.health ++
+                                    alert("You leave your giant web, eight arms clicking and clacking. You come to the troll room where you see the troll fighting the intruder. You leap into the fray attacking him. You bite his arm, poisoning him with your venom. Then he stabbs you and you die.")
+                                    
+                                }
 //                        
 //                        
 //                
@@ -447,8 +473,8 @@ function Adventure() {
 //                    default: 
 //                        alert("I don't know who "+listOfMinions+" is!");
 //                        MinionSlaves();
-//                    break;     
-//                    } 
+                    break;     
+                    }// switch end bracket (list of minions) 
 //                    */ 
 //                        
 //                        
