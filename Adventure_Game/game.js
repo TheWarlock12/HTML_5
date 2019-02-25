@@ -77,12 +77,14 @@ function Adventure() {
     while (!confirm("do you want your name " + playerName)){
         playerName = prompt("change your name from " + playerName + " to?");
     }
+    var annoyingMagicNumber= prompt("Please pick a number between 1 and 10.");
     alert("Welcome to your home " + playerName);
     var start = confirm("start hit ok, skip hit cancel");
         if (start)
             LairBase();
         else 
             Intruder();
+    
     function LairBase() {
         
       
@@ -378,23 +380,11 @@ function Adventure() {
                                 var goblinLate = prompt("The adventure must have passed the sleeping goblin. Do you \n chase after him \n or \n change minions");
                                     if (goblinLate == "chase after him" || goblinLate == "chase"){
                                         alert("You run into the Troll Room, you see the adventurer fighting the troll with a glowing sword. The troll accidentally steps on your squishy body. Pick a new minion. ")
-                                        if (adventurer.health <= 0){
-                                       alert("Yay! you kill the adventurer your reign of terror will continue forever.")
-                                   }
-                                        if (adventurer.tick >=4 && adventurer.health >=1 ){
-                                       alert("You have failed!")
-                                        EndGame();
-                                    }
+                                        
                                     }
                                     if (goblinLate == "change minions"){
-                                        alert("You leave the goblin's body and pick something better.")
-                                        if (adventurer.health <= 0){
-                                       alert("Yay! you kill the adventurer your reign of terror will continue forever.")
-                                   }
-                                        if (adventurer.tick >=4 && adventurer.health >=1 ){
-                                       alert("You have failed!")
-                                        EndGame();
-                                    }
+                                        alert("You leave the goblin's body and pick something better.");
+                                    
                                     }
                                     } // 2 or 3 minion
                         } //end of goblin
@@ -403,9 +393,9 @@ function Adventure() {
                         if (minions.troll == 1){
                            alert("You seize control of the troll's mind. It cracks but doesn't break and relinquishes to your awesome power.")
                             if (adventurer.tick == 0){
-                                adventurer.tick ++
+                                adventurer.tick ++;
                                 checkAdventurer();
-                                var trollEarly = prompt("The adventurer hasn't been here yet, but you can smell him in a passage father down. Do you \n -hunt him \n -ambush him")
+                                var trollEarly = prompt("The adventurer hasn't been here yet, but you can smell him in a passage father down. Do you \n -hunt him \n -ambush him");
                                     if (trollEarly == "hunt him" || trollEarly == "hunt"){
                                                                  
                                     
@@ -418,15 +408,7 @@ function Adventure() {
                                         adventurer.health --;
                                         adventurer.health --;
                                         alert("You decide to wait. Your in a cave with a high ceiling, so you begin to climb. Right above the entrance. You wait for a little while when you see the blue light of his glowing sword. This time you've got em. You jump down trying to squish him. He hears you comming and dodges. You swipe at him with your claws. It doesn't hit skin but his armor takes a battering. He comes at you, You jump back and roar, swiping again. You draw blood this time, but while you are celebrating your victory, the intruder slides under you and stabs you in the heart. Your crystal ball and vision fades. Great job hurting the Intruder. Now which minion would you like to use?");
-                                        if (adventurer.health <= 0){
-                                       alert("Yay! you kill the adventurer your reign of terror will continue forever.")
-                                   }
-                                        if (adventurer.tick >=4 && adventurer.health >=1 ){
-                                       alert("You have failed!")
-                                        EndGame();
-                                    }
-                                        else{
-                                            CrystalBall();
+                                        CrystalBall();
                                     }
                                     
                                     }
@@ -434,12 +416,14 @@ function Adventure() {
                             }
                     
                             if (adventurer.tick ==1){
-                                adventurer.tick ++
+                                adventurer.tick ++;
                                 checkAdventurer();
                                 var trollReady = prompt("The intruder comes and the blue light of his sword is shining down the tunnel, how should you deal with him? \n -charge \n -ambush him \n -play dead")
                                     if (trollReady == "charge"){
                                         minions.troll --;
+                                        checkAdventurer();
                                         alert("You charge down the tunnel sniffing for the intruder. You see a blue light up ahead. When you turn the corner you see him ready with his sword. You begin to attack but he swipes your head off with his sword before you can hit him. Better luck next time. Oh good, your safe in your lair. Now you know better. Which minion would you like to use next?");
+                                        checkAdventurer();
                                         CrystalBall();
 
                                     }
@@ -447,31 +431,17 @@ function Adventure() {
                                         minions.troll --;
                                         adventurer.health --;
                                         adventurer.health --;
+                                        checkAdventurer();
                                         alert("You decide to wait. Your in a cave with a high ceiling, so you begin to climb. Right above the entrance. You wait for a little while when you see the blue light of his glowing sword. This time you've got em. You jump down trying to squish him. He hears you comming and dodges. You swipe at him with your claws. It doesn't hit skin but his armor takes a battering. He comes at you, You jump back and roar, swiping again. You draw blood this time, but while you are celebrating your victory, the intruder slides under you and stabs you in the heart. Your crystal ball and vision fades. Great job hurting the Intruder. Now which minion would you like to use?");
-                                        if (adventurer.health <= 0){
-                                       alert("Yay! you kill the adventurer your reign of terror will continue forever.")
-                                   }
-                                        if (adventurer.tick >=4 && adventurer.health >=1 ){
-                                       alert("You have failed!")
-                                        EndGame();
-                                    }
-                                        else{
-                                            CrystalBall();
+                                        CrystalBall();
                                     }
                                     }
                                     if (trollReady == "play dead"){
                                         minions.troll --;
                                         adventurer.health --;
+                                        checkAdventurer();
                                         alert("The Intruder creeps into the room cautiously, he sees you lieing on the ground. He creeps closer and closer. You jump up and swipe him with your claws, he takes a hit. You go to swipe again but he chops off your arm. Then as you look at the stump on your shoulder, he stabs you through the heart. Great job hurting the Intruder. Now which minion would you like to use?");
-                                        if (adventurer.health <= 0){
-                                       alert("Yay! you kill the adventurer your reign of terror will continue forever.")
-                                   }
-                                        if (adventurer.tick >=4 && adventurer.health >=1 ){
-                                       alert("You have failed!")
-                                        EndGame();
-                                    }
-                                        else{
-                                            CrystalBall();
+                                        CrystalBall();
                                     }
                                     }
 
@@ -499,51 +469,45 @@ function Adventure() {
                     break;
                     case "giant_spider":
                        if (minions.giantSpider == 1){
-                            alert("You seize control of the spider's mind. It feels your touch and immediately relinquishes to your power.")
-                           debugger;
+                            alert("You seize control of the spider's mind. It feels your touch and immediately relinquishes to your power.");
+                           
+                           
                            checkAdventurer();
                             if (adventurer.tick == 0 || adventurer.tick == 1){
-                                adventurer.tick ++
+                                adventurer.tick ++;
                                 checkAdventurer();
-                                var spiderEarly = prompt("The adventurer hasn't been here yet, but you can smell him in a passage father down. Do you \n -wait \n or \n -hunt")
+                                var spiderEarly = prompt("The adventurer hasn't been here yet, but you can smell him in a passage father down. Do you \n -wait \n or \n -hunt");
                                 checkAdventurer();
                                 if (spiderEarly == "wait"){
-                                    alert("You choose to wait and check on other minions.")
+                                    alert("You choose to wait and check on other minions.");
                                     CrystalBall();
                                 }
                                 if (spiderEarly == "hunt" ){
-                                    minions.giantSpider --
-                                    adventurer.health --
-                                    adventurer.health --
+                                    minions.giantSpider --;
+                                    adventurer.health --;
+                                    adventurer.health --;
                                     checkAdventurer();
-                                    alert("You leave your giant web, eight arms clicking and clacking. You come to the troll room where you see the troll fighting the intruder. You leap into the fray attacking him. You bite his arm, poisoning him with your venom. Then he stabbs you and you die.")
+                                    alert("You leave your giant web, eight arms clicking and clacking. You come to the troll room where you see the troll fighting the intruder. You leap into the fray attacking him. You bite his arm, poisoning him with your venom. Then he stabbs you and you die.");
                                     checkAdventurer();
-                                    
-                                    if (adventurer.health <= 0){
-                                       alert("Yay! you kill the adventurer your reign of terror will continue forever.")
-                                   }
-                                    if (adventurer.tick >=4 && adventurer.health >=1 ){
-                                       alert("You have failed!")
-                                        EndGame();
-                                    }
-                                    else{
-                                        CrystalBall();
+                                       CrystalBall();
                                     }
                                 }
                             }
                         
-                             if (adventurer.tick == 2){
-                                 adventurer.tick ++
-                                 adventurer.health --
-                                 
-                                var spiderTime = alert("You are ready to take down the adventurer and you wait like a spider to ambush him. He comes into your webbed cave and gets caught in your sticky strands. You pounce, sinking your fangs into his thigh. ")
+                             if (adventurer.tick >= 2){
+                                 adventurer.tick ++;
+                                 adventurer.health --;
+                                 checkAdventurer();
+                                var spiderTime = alert("You are ready to take down the adventurer and you wait like a spider to ambush him. He comes into your webbed cave and gets caught in your sticky strands. You pounce, sinking your fangs into his thigh. ");
                                 checkAdventurer();
                     
                                    if (adventurer.health <= 0){
-                                       alert("Yay! you kill the adventurer your reign of terror will continue forever.")
+                                       alert("Yay! you kill the adventurer your reign of terror will continue forever.");
+                                       
                                    }
-                                    if (adventurer.tick >=4 && adventurer.health >=1 ){
-                                       alert("You have failed!")
+                                   else if (adventurer.tick >=4 && adventurer.health >=1 ){
+                                        
+                                        alert("You have failed!");
                                         EndGame();
                                     }
                              }
@@ -562,8 +526,14 @@ function Adventure() {
                       var wizardNames = ["Amontillado", "Amigo Toyota", "Inigo Montoya", "Jeff"];
                       document.write(wizardNames[0]);
                       alert("You hear a knock on the door, hmmm, I wonder who that is. You go to open the door, it explodes inwards knocking you back. 'My name is "+wizardNames[Math.floor(Math.random()*Math.floor(4))]+"! You killed my father, now prepare to die!' He runs you through with his sword, and starts going through your treasue. Your vision fades and goes dark." )
+                      MagicNumber();
                                     }
                             
+                function MagicNumber(){
+                    for(i =1; i <= annoyingMagicNumber; i++){
+                    alert("Your annoying magic number was "+annoyingMagicNumber+"! Now I will proceed to repeat this message "+annoyingMagicNumber+" times!")
+                    }
+                }
       
                        
                 
