@@ -1,1 +1,55 @@
 /* Stylesheet for Mobile App */
+/* Reset */
+html, body, div, p, ul, ol, li, h1, h2, h3,h4,h5,h6 
+{
+    margin: 0;
+    padding: 0;
+    
+}
+
+body{
+    background-color: aqua;
+}
+
+div#container{
+    width: 850px;
+    height: 1000px;
+    border: 3px dashed mediumblue;
+    background-color: fuchsia;
+    background-image: url("https://www.hindustantimes.com/rf/image_size_960x540/HT/p2/2018/06/25/Pictures/_f36adf22-7874-11e8-8d5f-3f0c905295d2.jpg");
+    
+}
+header{
+    width: 91.5%;
+    padding: 50px;
+    background-color: aquamarine;
+    
+}
+header h1{
+    color: springgreen;
+    font-family: "Tahoma", sans-serif;
+    font-size: 5.45em;
+}
+div#content{
+    width:100%;
+    color: brown;
+    background-color: firebrick;
+    font-family: inherit;
+    font-size: 1.3em;
+}
+
+
+nav{
+    background-color: darkkhaki;
+    color: antiquewhite;
+    font-family: cursive;
+    font-size: 2.6em;
+    background-image: url("Shrike.png");
+}
+
+footer{
+    background-color: floralwhite;
+    width:100%;
+    background-color: cornflowerblue;
+    background-image: url("Shrike.png");
+}
