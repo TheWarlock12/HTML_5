@@ -1,5 +1,23 @@
 /* Stylesheet for Mobile App */
+/* Google Fonts
+
+
+    font-family: 'Lobster', cursive;
+
+    font-family: 'Cinzel', serif;
+
+    font-family: 'Fira Sans Condensed', sans-serif;
+
+    font-family: 'Gloria Hallelujah', cursive;
+
+    font-family: 'Underdog', cursive;
+
+
+*/
+
+
 /* Reset */
+
 html, body, div, p, ul, ol, li, h1, h2, h3,h4,h5,h6 
 {
     margin: 0;
@@ -27,7 +45,7 @@ header{
 }
 header h1{
     color: springgreen;
-    font-family: "Tahoma", sans-serif;
+    font-family: 'Lobster', cursive;
     font-size: 5.45em;
 }
 div#content{
@@ -44,7 +62,29 @@ nav{
     color: antiquewhite;
     font-family: cursive;
     font-size: 2.6em;
-    background-image: url("Shrike.png");
+    /*background-image: url("Shrike.png");*/
+}
+nav ul{
+    list-style: none;
+    
+}
+
+nav ul li{
+    float:left;
+    padding: 5px 15px;
+    border-right: 2px inset black;
+    
+}
+nav ul li a{
+    color: aqua
+    text-decoration: none;
+    color:antiquewhite;
+    
+    
+}
+nav ul li a:hover{
+    background-color: fuchsia;;
+    
 }
 
 footer{
@@ -53,3 +93,11 @@ footer{
     background-color: cornflowerblue;
     background-image: url("Shrike.png");
 }
+div.keepOpen{
+    clear: both;
+    
+}
+
+
+
+
