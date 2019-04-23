@@ -34,23 +34,23 @@ div#container{
     height: 1000px;
     border: 3px dashed mediumblue;
     background-color: fuchsia;
-    background-image: url("https://www.hindustantimes.com/rf/image_size_960x540/HT/p2/2018/06/25/Pictures/_f36adf22-7874-11e8-8d5f-3f0c905295d2.jpg");
+    background-image: /*url("https://www.hindustantimes.com/rf/image_size_960x540/HT/p2/2018/06/25/Pictures/_f36adf22-7874-11e8-8d5f-3f0c905295d2.jpg");*/
     
 }
 header{
-    width: 91.5%;
+    width: 90%;
     padding: 50px;
     background-color: aquamarine;
     
 }
 header h1{
-    color: springgreen;
-    font-family: 'Lobster', cursive;
+    color: black;
+    font-family: 'Underdog', cursive;
     font-size: 5.45em;
 }
 div#content{
     width:100%;
-    color: brown;
+    color: black;
     background-color: firebrick;
     font-family: inherit;
     font-size: 1.3em;
@@ -83,7 +83,7 @@ nav ul li a{
     
 }
 nav ul li a:hover{
-    background-color: fuchsia;;
+    background-color: lightgreen;
     
 }
 
