@@ -30,17 +30,17 @@ body{
 }
 
 div#container{
-    width: 850px;
-    height: 1000px;
+    width: 100%;
+    
     border: 3px dashed mediumblue;
-    background-color: fuchsia;
+    background-color:  mediumseagreen;
     background-image: /*url("https://www.hindustantimes.com/rf/image_size_960x540/HT/p2/2018/06/25/Pictures/_f36adf22-7874-11e8-8d5f-3f0c905295d2.jpg");*/
     
 }
 header{
     width: 90%;
     padding: 50px;
-    background-color: aquamarine;
+    background-color: aqua;
     
 }
 header h1{
@@ -70,34 +70,51 @@ nav ul{
 }
 
 nav ul li{
-    float:left;
-    padding: 5px 15px;
-    border-right: 2px inset black;
+    
     
 }
 nav ul li a{
-    color: aqua
+    
+    float:left;
+    display:block;
+    padding: 5px 15px;
+    border-right: 2px solid black;
+    color: aqua;
     text-decoration: none;
     color:antiquewhite;
     
-    
 }
 nav ul li a:hover{
-    background-color: lightgreen;
+    background-color: lightskyblue;
+    color: mediumspringgreen;
     
 }
 
 footer{
-    background-color: floralwhite;
+    position:absolute;
     width:100%;
+    bottom:0;
+    left:0;
+    height:50px;
     background-color: cornflowerblue;
-    background-image: url("Shrike.png");
+    /*background-image: url("Shrike.png");*/
 }
 div.keepOpen{
     clear: both;
     
 }
 
+@media screen and (max-width: 1200px){
+    div#container{
+        width:100%
+            
+    }
+    nav ul li a{
+        float:none;
+        text-align: center;
+        
+    }
+}
 
 
 
