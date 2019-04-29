@@ -57,12 +57,13 @@ div#content{
 }
 
 
+/*
 nav{
     background-color: darkkhaki;
     color: antiquewhite;
     font-family: cursive;
     font-size: 2.6em;
-    /*background-image: url("Shrike.png");*/
+    background-image: url("Shrike.png");
 }
 nav ul{
     list-style: none;
@@ -89,7 +90,9 @@ nav ul li a:hover{
     color: mediumspringgreen;
     
 }
+*/
 
+/*
 footer{
     position:absolute;
     width:100%;
@@ -97,7 +100,7 @@ footer{
     left:0;
     height:50px;
     background-color: cornflowerblue;
-    /*background-image: url("Shrike.png");*/
+    background-image: url("Shrike.png");
 }
 div.keepOpen{
     clear: both;
@@ -115,6 +118,35 @@ div.keepOpen{
         
     }
 }
+*/
+
+.icon-bar{
+    position: absolute;
+    bottom:0;
+    width: 100%;
+    background-color: black;
+    overflow: auto;
+
+}
+.icon-bar a {
+    float: left;
+    width: 20%;
+    text-align: center;
+    padding: 12px 0;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 36px;
+    
+}
+.icon-bar a:hover {
+    background-color: blue;
+}
+.active {
+    background-color: #ffa20e;
+}
+
+
+
 
 
 
