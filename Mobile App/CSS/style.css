@@ -41,12 +41,19 @@ header{
     width: 90%;
     padding: 50px;
     background-color: aqua;
+    text-align: center;
     
+}
+header img#applogo{
+    display: block;
+    margin: auto;
+    width: 100px;
 }
 header h1{
     color: black;
     font-family: 'Underdog', cursive;
     font-size: 5.45em;
+    text-align: center;
 }
 div#content{
     width:100%;
