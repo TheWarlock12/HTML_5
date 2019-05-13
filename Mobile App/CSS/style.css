@@ -62,7 +62,9 @@ div#content{
     font-family: inherit;
     font-size: 1.3em;
 }
-
+header#img{
+    
+}
 
 /*
 nav{
@@ -128,7 +130,7 @@ div.keepOpen{
 */
 
 .icon-bar{
-    position: absolute;
+    position: fixed;
     bottom:0;
     width: 100%;
     background-color: black;
@@ -152,8 +154,56 @@ div.keepOpen{
     background-color: #ffa20e;
 }
 
+div.keepOpen{
+    clear:both;
+}
 
+figure.product{
+    display: block;
+    float: left;
+    margin: 18px 15px;
+    min-width: 38%;
+    max-width: 45%;
+    background-color: blue;
+    border-radius: 58%;
+}
+figure.product img{
+        display:block;
+        padding:18px 0;
+        width:80%;
+        margin: auto;
+    }
+    div#product_grp{
+        max-width:60%;
+        min-width:20%;
+        margin:auto;
+        
+    }
+figure.product figcaption{
+        text-align: center;
+        color: white;
+        font-family: fantasy;
+        font-size:12px;
+    }
 
+@media screen and (max-width: 600px) {
+	div#container{
+		width:100%;
+        float:none;
+        margin:auto;
+        min-width: 50%;
+        max-width: 100%;
+        background-color: blue;
+        border-radius: 5%;
+        
+}
+    figure.product figcaption{
+        text-align: center;
+        color: white;
+        font-family: fantasy;
+        font-size:12px;
+    }
+    
 
 
 
