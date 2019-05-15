@@ -185,7 +185,13 @@ figure.product figcaption{
         font-family: fantasy;
         font-size:12px;
     }
-
+img#meme{
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: auto;
+    
+}
 @media screen and (max-width: 600px) {
 	div#container{
 		width:100%;
@@ -193,7 +199,7 @@ figure.product figcaption{
         margin:auto;
         min-width: 50%;
         max-width: 100%;
-        background-color: blue;
+        background-color: aqua;
         border-radius: 5%;
         
 }
@@ -202,6 +208,38 @@ figure.product figcaption{
         color: white;
         font-family: fantasy;
         font-size:12px;
+    }
+    
+    
+    @media screen and (max-width: 1200px)  {
+        figure.product{
+            float:none;
+            margin:10px auto;
+            min-width:50%;
+            max-width: 100%;
+            background-color: aqua;
+            border-radius: 5%;
+            text-align: center;
+            
+            
+        }
+        
+        figure.product figcaption{
+            text-align: center;
+            color:white;
+            font-family: fantasy;
+            font-size:12px;
+            
+        }
+        
+        legend, span, input, textarea{
+            display:block;
+            margin:auto;
+            text-align:center;
+            font-family: sans-serif;
+            color:aqua;
+            
+        }
     }
     
 
