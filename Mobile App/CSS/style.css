@@ -31,17 +31,23 @@ body{
 
 div#container{
     width: 100%;
+    display: block;
+    margin: auto;
     
+    height: auto;
     border: 3px dashed mediumblue;
     background-color:  mediumseagreen;
     background-image: /*url("https://www.hindustantimes.com/rf/image_size_960x540/HT/p2/2018/06/25/Pictures/_f36adf22-7874-11e8-8d5f-3f0c905295d2.jpg");*/
     
 }
 header{
-    width: 90%;
-    padding: 50px;
+    width: 100%;
+    padding: auto;
     background-color: aqua;
     text-align: center;
+    display: block;
+    margin: auto;
+    height: auto;
     
 }
 header img#applogo{
@@ -50,15 +56,15 @@ header img#applogo{
     width: 100px;
 }
 header h1{
-    color: black;
+    color: green;
     font-family: 'Underdog', cursive;
     font-size: 5.45em;
     text-align: center;
 }
 div#content{
     width:100%;
-    color: black;
-    background-color: firebrick;
+    color: green;
+    background-color: blue;
     font-family: inherit;
     font-size: 1.3em;
 }
@@ -192,6 +198,88 @@ img#meme{
     height: auto;
     
 }
+img#flora{
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: auto;
+    min-height: 60px;
+    min-width: 60px;
+}
+img#Father{
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: auto;
+    min-height: 60px;
+    min-width: 60px;
+}
+img#magic1{
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: auto;
+    min-height: 60px;
+    min-width: 60px;
+}
+img#magic2{
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: auto;
+    min-height: 60px;
+    min-width: 60px;
+}
+img#magic3{
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: auto;
+    min-height: 60px;
+    min-width: 60px;
+}
+img#fauna1{
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: auto;
+    min-height: 60px;
+    min-width: 60px;
+}
+img#fauna2{
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: auto;
+    min-height: 60px;
+    min-width: 60px;
+}
+img#fauna3{
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: auto;
+    min-height: 60px;
+    min-width: 60px;
+}
+img#fauna4{
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: auto;
+    min-height: 60px;
+    min-width: 60px;
+}
+img#map{
+    
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: auto;
+    min-height: 60px;
+    min-width: 60px;
+}
+
 @media screen and (max-width: 600px) {
 	div#container{
 		width:100%;
@@ -211,7 +299,7 @@ img#meme{
     }
     
     
-    @media screen and (max-width: 1200px)  {
+    @media screen and (max-width: 1200px)  {  
         figure.product{
             float:none;
             margin:10px auto;
